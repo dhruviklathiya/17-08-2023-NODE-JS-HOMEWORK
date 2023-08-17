@@ -43,5 +43,5 @@ connectDB()
 const server = http.createServer(app);
 
 server.listen(config.port, () => {
-  console.log("server listning port number !"+ config.port + "mine");
+  console.log("Port number === === === "+ config.port + " === === === port is active");
 });
