@@ -1,16 +1,15 @@
 const { userService, emailService } = require("../services");
-
 /** create user */
-const createUser = async (req, res) => {
+const create_user = async (req, res) => {
   try {
     const reqBody = req.body;
 
-    const userExists = await userService.getUserByEmail(reqBody.email);
+    const userExists = await userService.get_user_by_email(reqBody.email);
     if (userExists) {
       throw new Error("User already created by this email!");
     }
 
-    const user = await userService.createUser(reqBody);
+    const user = await userService.create_user(reqBody);
     if (!user) {
       throw new Error("Something went wrong, please try again or later!");
     }
@@ -22,13 +21,13 @@ const createUser = async (req, res) => {
       data: { reqBody },
     });
   } catch (error) {
-    res.status(400).json({ success: false, message:  error.message});
+    res.status(400).json({ success: false, message: error.message });
   }
   // till this
 };
 
 /** Get user list */
-const getUserList = async (req, res) => {
+const get_user_list = async (req, res) => {
   try {
     // this2
     const { search, ...options } = req.query;
@@ -41,7 +40,7 @@ const getUserList = async (req, res) => {
       ];
     }
     // till this2
-    const getList = await userService.getUserList(filter, options);
+    const getList = await userService.get_user_list(filter, options);
 
     res.status(200).json({
       success: true,
@@ -56,7 +55,7 @@ const getUserList = async (req, res) => {
 /** Get user details by id */
 const getUserDetails = async (req, res) => {
   try {
-    const getDetails = await userService.getUserById(req.params.userId);
+    const getDetails = await userService.get_user_by_id(req.params.userId);
     if (!getDetails) {
       throw new Error("User not found!");
     }
@@ -75,16 +74,17 @@ const getUserDetails = async (req, res) => {
 const updateDetails = async (req, res) => {
   try {
     const userId = req.params.userId;
-    const userExists = await userService.getUserById(userId);
+    const userExists = await userService.get_user_by_id(userId);
     if (!userExists) {
       throw new Error("User not found!");
     }
 
-    await userService.updateDetails(userId, req.body);
+    await userService.update_details(userId, req.body);
 
-    res
-      .status(200)
-      .json({ success: true, message: "User details update successfully!" });
+    res.status(200).json({
+      success: true,
+      message: "User details update successfully!"
+    });
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
   }
@@ -94,12 +94,12 @@ const updateDetails = async (req, res) => {
 const deleteUser = async (req, res) => {
   try {
     const userId = req.params.userId;
-    const userExists = await userService.getUserById(userId);
+    const userExists = await userService.get_user_by_id(userId);
     if (!userExists) {
       throw new Error("User not found!");
     }
 
-    await userService.deleteUser(userId);
+    await userService.delete_user(userId);
 
     res.status(200).json({
       success: true,
@@ -131,8 +131,8 @@ const sendMail = async (req, res) => {
   }
 };
 module.exports = {
-  createUser,
-  getUserList,
+  create_user,
+  get_user_list,
   getUserDetails,
   updateDetails,
   deleteUser,

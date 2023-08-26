@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
- const book_Schema = new mongoose.Schema(
+const book_Schema = new mongoose.Schema(
     {
-        book_name:{
+        book_name: {
             type: String,
             trim: true
         },
-        book_author:{
+        book_author: {
             type: String,
             trim: true
         },
@@ -16,10 +16,9 @@ const mongoose = require("mongoose");
         }
     },
     {
-        timestamps:true,
-        versionKey:false
-    }
-);
+        timestamps: true,
+        versionKey: false
+});
 
 const book = mongoose.model("Book",book_Schema);
 module.exports = book;

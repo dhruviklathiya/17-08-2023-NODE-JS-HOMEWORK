@@ -11,8 +11,8 @@ const getCategoryList = {
     query: Joi.object().keys({
       search: Joi.string().trim().allow(""),
       sortBy: Joi.string().trim().allow(""),
-      limit: Joi.number().integer().allow(""),
-      page: Joi.number().integer().allow(""),
+      limit: Joi.number().integer().required(),
+      page: Joi.number().integer().required(),
     }),
   };
 

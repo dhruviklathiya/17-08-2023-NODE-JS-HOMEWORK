@@ -1,25 +1,33 @@
-const Book = require("../models/book.model")
+const { Book } = require("../models");
 /**
- * Create book
+ * Create user
  * @param {object} reqBody
  * @returns {Promise<Book>}
  */
-const createBook = async (reqBody) => {
+const create_book = async (reqBody) => {
     return Book.create(reqBody);
 };
-
 /**
- * Get category list
- * @param {object} filter
- * @param {object} options
+ * Get Book list
  * @returns {Promise<Book>}
  */
-const getbooklist = async (filter,options) => {
-    const skip = (Number(options.page || 1) - 1) * Number(options.limit || 10);
-    return Book.find(filter).skip(skip).limit(options.limit);
-};
+const get_book_list = async () => {
+    // return specific data
+    return Book.find({ $or: [{book_author:"James Clear"}]});
+    // Return all data
+    // return Book.find();
+}
+/**
+ * Get Book by name
+ * @param {object} reqBody
+ * @returns {Promise<Book>}
+ */
+const get_book_by_name = async(book_name) => {
+    return Book.findOne({book_name});
+}
 
 module.exports = {
-    createBook,
-    getbooklist
+    create_book,
+    get_book_list,
+    get_book_by_name
 }

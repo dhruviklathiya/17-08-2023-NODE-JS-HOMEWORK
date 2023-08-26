@@ -1,4 +1,14 @@
-module.exports.userValidation = require("./user.validation");
-module.exports.categoryValidation = require("./category.validation");
+module.exports.user_Validation = require("./user.validation");
+module.exports.category_Validation = require("./category.validation");
 module.exports.tokenValidation = require("./token.validation");
-module.exports.bookValidation = require("./book.validation");
+module.exports.book_Validation = require("./book.validation");
+module.exports.hotel_Validation = require("./hotel.validation");
+module.exports.bus_Validation = require("./bus.validation");
+module.exports.stationary_Validation = require("./stationary.validation")
+module.exports.school_Validation = require("./school.validation")
+module.exports.travel_Validation = require("./travel.validation")
+module.exports.pharmacy_Validation = require("./pharmacy.validation")
+module.exports.jewellery_Validation = require("./jewellery.validation")
+module.exports.movie_Validation = require("./movie.validation")
+module.exports.music_Validation = require("./music.validation")
+module.exports.grocery_Validation = require("./grocery.validation")

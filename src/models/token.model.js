@@ -12,7 +12,7 @@ const tokenSchema = mongoose.Schema(
     user: {
       type: mongoose.Types.ObjectId,
       ref: "User",
-    },
+    }
   },
   {
     timestamps: true,
