@@ -1,5 +1,6 @@
 const { category_Service } = require("../services");
 
+/* CREATE CATEGORY */
 const create_category = async (req, res) => {
     try {
       const reqBody = req.body;
@@ -24,6 +25,7 @@ const create_category = async (req, res) => {
     }
 };
 
+/* CATEGORY LIST */
 const category_list = async (req,res) => {
     try {
         const categorylist = await category_Service.get_category_list();
@@ -43,6 +45,7 @@ const category_list = async (req,res) => {
     }
 }
 
+/* DELETE CATEGORY */
 const delete_category = async(req,res) => {
   try {
     const category_id = req.params.categoryId;

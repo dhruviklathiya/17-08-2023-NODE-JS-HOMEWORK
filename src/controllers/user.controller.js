@@ -1,36 +1,33 @@
 const { user_Service, email_Service } = require("../services");
-/** create user */
+
+/* CREATE USER */
 const create_user = async (req, res) => {
   try {
     const reqBody = req.body;
-
     const userExists = await user_Service.get_user_by_email(reqBody.email);
     if (userExists) {
-      throw new Error("User already created by this email !-!");
+      throw new Error("User already created by this email -!- ");
     }
-
     const user = await user_Service.create_user(reqBody);
     if (!user) {
       throw new Error("Something went wrong -!- ");
     }
-
     res.status(200).json({
       success: true,
       message: "User create successfully ^-^",
-      data: { reqBody },
+      data: reqBody,
     });
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
   }
-  // till this
 };
 
-/** Get user list */
+/* USER LIST */
 const get_user_list = async (req, res) => {
   try {
     const userlist = await user_Service.get_user_list();
     if(!userlist){
-      throw new Error("No data found -!- ");
+      throw new Error("User list data not found -!- ");
     }
     res.status(200).json({
       success: true,
@@ -80,18 +77,18 @@ const updateDetails = async (req, res) => {
   }
 };
 
-/** Delete user */
+/* DELETE USER */
 const delete_user = async (req, res) => {
   try {
     const user_id = req.params.userId;
     const userExists = await user_Service.get_user_by_id(user_id);
     if (!userExists) {
-      throw new Error("User not found -!- ");
+      throw new Error("User does not exist -!- ");
     }
     await user_Service.delete_user(user_id);
     res.status(200).json({
       success: true,
-      message: "User delete successfully!",
+      message: "User deleted successfully ^-^ ",
     });
   } catch (error) {
     res.status(400).json({

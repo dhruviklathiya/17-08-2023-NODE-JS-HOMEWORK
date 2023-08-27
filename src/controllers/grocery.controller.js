@@ -1,5 +1,6 @@
 const { grocery_Service } = require("../services");
 
+/* CREATE GROCERY */
 const create_grocery = async(req,res) => {
     try {
         const reqbody = req.body;
@@ -24,6 +25,7 @@ const create_grocery = async(req,res) => {
     }
 }
 
+/* LIST GROCERY */
 const get_grocery_list = async(req,res) => {
     try {
         const grocery_list = await grocery_Service.get_grocery_list();
@@ -43,6 +45,7 @@ const get_grocery_list = async(req,res) => {
     }
 }
 
+/* DELETE GROCERY */
 const delete_grocey = async(req,res) => {
     try {
         const grocery_id = req.params.groceryId;

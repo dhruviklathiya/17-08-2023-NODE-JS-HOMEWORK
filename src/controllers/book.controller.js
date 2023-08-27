@@ -1,5 +1,6 @@
 const { book_Service } = require("../services");
 
+/* CREATE BOOK */
 const create_book = async (req, res) => {
   try {
     const reqBody = req.body;
@@ -21,6 +22,7 @@ const create_book = async (req, res) => {
   }
 };
 
+/* BOOK LIST */
 const get_book_list = async (req,res) => {
   try {
     const book_list = await book_Service.get_book_list();
@@ -37,6 +39,7 @@ const get_book_list = async (req,res) => {
   }
 };
 
+/* DELETE BOOK */
 const delete_book = async(req,res) => {
   try {
     const book_id = req.params.bookId;

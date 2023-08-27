@@ -1,5 +1,6 @@
 const { school_Service } = require("../services")
 
+/* CREATE SCHOOL */
 const create_school = async(req,res) => {
     try {
         const reqbody = req.body;
@@ -24,6 +25,7 @@ const create_school = async(req,res) => {
     }
 }
 
+/* LIST SCHOOL */
 const get_school_list = async(req,res) => {
     try {
         const school_list = await school_Service.get_school_list();
@@ -43,6 +45,7 @@ const get_school_list = async(req,res) => {
     }
 }
 
+/* DELETE SCHOOL */
 const delete_school = async(req,res) => {
     try {
         const school_id = req.params.schoolId;

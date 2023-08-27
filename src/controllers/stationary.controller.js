@@ -1,5 +1,6 @@
 const { stationary_Service } = require("../services")
 
+/* CREATE STATIONARY */
 const create_stationary = async(req,res) => {
     try{
         const reqbody = req.body;
@@ -24,6 +25,7 @@ const create_stationary = async(req,res) => {
     }
 };
 
+/* STATIONARY LIST */
 const get_stationary_list = async(req,res) => {
     try {
         const stationary_list = await stationary_Service.get_stationary_list();
@@ -32,7 +34,7 @@ const get_stationary_list = async(req,res) => {
         }
         res.status(200).json({
             success: true,
-            message: "Item ;ist data dispatch successfully ^-^ ",
+            message: "Item List data dispatch successfully ^-^ ",
             data: stationary_list,
         });
     } catch (error) {
@@ -43,6 +45,7 @@ const get_stationary_list = async(req,res) => {
     }
 }
 
+/* DELETE STATIONARY */
 const delete_stationary = async(req,res) => {
     try {
         const stationary_id = req.params.stationaryId;

@@ -1,5 +1,6 @@
 const { product_Service } = require("../services");
 
+/* CREATE PRODUCT */
 const create_product = async(req,res) => {
     try {
         const reqbody = req.body;
@@ -24,11 +25,12 @@ const create_product = async(req,res) => {
     }
 }
 
+/* PRODUCT LIST */
 const get_product_list = async (req, res) => {
     try {
       const product_list = await product_Service.get_product_list();
       if(!product_list){
-        throw new Error("No data founbd!!!");
+        throw new Error("Product list data not found -!- ");
       }
       res.status(200).json({
         success: true,
@@ -36,10 +38,14 @@ const get_product_list = async (req, res) => {
         data: product_list,
       });
     } catch (error) {
-      res.status(400).json({ success: false, message: error.message });
+      res.status(400).json({
+        success: false,
+        message: error.message
+      });
     }
 };
 
+/* DELETE PRODUCT */
 const delete_product = async(req,res) => {
     try {
       const product_id = req.params.productId;

@@ -1,5 +1,6 @@
 const { hotel_Service } = require("../services")
 
+/* CREATE HOTEL */
 const create_hotel = async (req, res) => {
   try {
     const reqBody = req.body;
@@ -24,6 +25,7 @@ const create_hotel = async (req, res) => {
   }
 };
 
+/* HOTEL LIST */
 const get_hotel_list = async(req,res) => {
     try {
         const getList = await hotel_Service.get_hotel_list();
@@ -43,7 +45,7 @@ const get_hotel_list = async(req,res) => {
       }
 }
 
-/** Delete hotel */
+/* DELETE HOTEL */
 const delete_hotel = async (req, res) => {
   try {
     const hotelID = req.params.hotelId;

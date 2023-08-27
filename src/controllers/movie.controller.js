@@ -1,5 +1,6 @@
 const { movie_Service }= require("../services")
 
+/* CREATE MOVIE */
 const create_movie = async(req,res) => {
     try {
         const reqbody = req.body;
@@ -24,6 +25,7 @@ const create_movie = async(req,res) => {
     }
 }
 
+/* LIST MOVIE */
 const get_movie_list = async(req,res) => {
     try {
         const movie_list = await movie_Service.get_movie_list();
@@ -43,6 +45,7 @@ const get_movie_list = async(req,res) => {
     }
 }
 
+/* DELETE MOVIE */
 const delete_movie = async (req,res) => {
     try {
       const movie_id = req.params.movieId;

@@ -1,5 +1,6 @@
 const { music_Service } = require("../services");
 
+/* CREATE MUSIC */
 const create_music = async(req,res)=> {
     try {
         const reqbody = req.body;
@@ -24,6 +25,7 @@ const create_music = async(req,res)=> {
     }
 }
 
+/* LIST MUSIC */
 const get_music_list = async(req,res) => {
     try {
         const music_list = await music_Service.get_music_list();
@@ -43,6 +45,7 @@ const get_music_list = async(req,res) => {
     }
 }
 
+/* DELETE MUSIC */
 const delete_music = async(req,res) => {
     try {
         const music_id = req.params.musicId;

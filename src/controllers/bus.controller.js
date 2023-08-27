@@ -1,5 +1,6 @@
 const { bus_Service } = require("../services")
 
+/* CREATE BUS */
 const create_bus = async(req,res) => {
     try {
         const reqBody = req.body;
@@ -8,6 +9,9 @@ const create_bus = async(req,res) => {
           throw new Error("Bus by this name already exist -!- ");
         }
         const bus = await bus_Service.create_bus(reqBody);
+        if(!bus){
+          throw new Error("Something went wrong -!- ");
+        }
         res.status(200).json({
           success: true,
           message: "Bus created successfully ^-^ ",
@@ -20,7 +24,8 @@ const create_bus = async(req,res) => {
         });
       }
 }
-/** Get bus list */
+
+/* BUS LIST */
 const get_bus_list = async (req, res) => {
   try {
     const bus_list = await bus_Service.get_bus_list();
@@ -40,6 +45,7 @@ const get_bus_list = async (req, res) => {
   }
 };
 
+/* DELETE BUS */
 const delete_bus = async (req,res) => {
   try {
     const bus_id = req.params.busId;

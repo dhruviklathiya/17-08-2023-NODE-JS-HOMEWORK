@@ -1,5 +1,6 @@
 const { jewellery_Service } = require("../services");;
 
+/* CREATE JEWELLERY */
 const create_jewellery = async (req,res) => {
     try {
         const reqbody = req.body;
@@ -24,6 +25,7 @@ const create_jewellery = async (req,res) => {
     }
 }
 
+/* LIST JEWELLERY */
 const get_jewellery_list = async(req,res) => {
     try {
         const jewellery_list = await jewellery_Service.get_jewellery_list();
@@ -43,6 +45,7 @@ const get_jewellery_list = async(req,res) => {
     }
 }
 
+/* DELETE JEWELLERY */
 const delete_jewellery = async(req,res) => {
     try {
         const jewellery_id = req.params.jewelleryId;

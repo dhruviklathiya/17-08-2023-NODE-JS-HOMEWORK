@@ -1,5 +1,6 @@
 const { travel_Service } = require("../services");
 
+/* CREATE TRAVEL */
 const create_travel = async(req,res)=> {
     try {
         const reqbody = req.body;
@@ -24,6 +25,7 @@ const create_travel = async(req,res)=> {
     }
 }
 
+/* LIST TRAVEL */
 const get_travel_list = async(req,res)=> {
     try {
         const travel_list = await travel_Service.get_travel_list();
@@ -43,6 +45,7 @@ const get_travel_list = async(req,res)=> {
     }
 }
 
+/* DELETE TRAVEL */
 const delete_travel = async(req,res) => {
     try {
         const travel_id = req.params.travelId;

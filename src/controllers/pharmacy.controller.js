@@ -1,5 +1,6 @@
 const { pharmacy_Service } = require("../services");
 
+/* CREATE PHARMACY */
 const create_pharmacy = async (req,res) => {
     try {
         const reqbody = req.body;
@@ -24,6 +25,7 @@ const create_pharmacy = async (req,res) => {
     }
 };
 
+/* LIST PHARMACY */
 const get_pharmacy_list = async(req,res) => {
     try {
         const pharmacy_list = await pharmacy_Service.get_pharmacy_list();
@@ -43,6 +45,7 @@ const get_pharmacy_list = async(req,res) => {
     }
 }
 
+/* DELETE PHARMACY */
 const delete_pharmacy = async(req,res) => {
     try {
         const pharmacy_id = req.params.pharmacyId;
