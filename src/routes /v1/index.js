@@ -1,6 +1,7 @@
 const express = require("express")
 const userRouter = require("./userRoute")
 const categoryRouter = require("./category.route")
+const productRouter = require("./product.routes.js")
 const bookRouter = require("./book.routes")
 const hotelRouter = require("./hotel.route")
 const busRouter = require("./bus.route")
@@ -12,11 +13,13 @@ const jewelleryRouter = require("./jewellery.route")
 const movieRouter = require("./movie.route")
 const musicRouter = require("./music.route")
 const groceryRouter = require("./grocery.route")
+const ecommerceRouter = require("./ecommerce.route")
 
 const router = express.Router();
 
 router.use("/user",userRouter);
 router.use("/category",categoryRouter);
+router.use("/product",productRouter);
 router.use("/book",bookRouter);
 router.use("/hotel",hotelRouter);
 router.use("/bus",busRouter);
@@ -28,5 +31,6 @@ router.use("/jewellery",jewelleryRouter);
 router.use("/movie",movieRouter);
 router.use("/music",musicRouter);
 router.use("/grocery",groceryRouter);
+router.use("/all",ecommerceRouter);
 
 module.exports = router;

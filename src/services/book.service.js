@@ -1,6 +1,6 @@
 const { Book } = require("../models");
 /**
- * Create user
+ * Create Book
  * @param {object} reqBody
  * @returns {Promise<Book>}
  */

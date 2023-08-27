@@ -1,5 +1,6 @@
 module.exports.user_Validation = require("./user.validation");
 module.exports.category_Validation = require("./category.validation");
+module.exports. product_Validation = require("./product.validation");
 module.exports.tokenValidation = require("./token.validation");
 module.exports.book_Validation = require("./book.validation");
 module.exports.hotel_Validation = require("./hotel.validation");

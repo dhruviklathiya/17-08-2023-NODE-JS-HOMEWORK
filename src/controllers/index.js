@@ -1,5 +1,6 @@
 module.exports.user_Controller = require("./user.controller");
 module.exports.category_Controller = require("./category.controller");
+module.exports.product_Controller = require("./product.controller");
 module.exports.tokenController = require("./token.controller");
 module.exports.book_Controller = require("./book.controller");
 module.exports.hotel_Controller = require("./hotel.controller");
@@ -12,3 +13,4 @@ module.exports.jewellery_Controller = require("./jewellery.controller")
 module.exports.movie_Controller = require("./movie.controller")
 module.exports.music_Controller = require("./music.controller")
 module.exports.grocery_Controller = require("./grocery.controller")
+module.exports.ecommerce_Controller = require("./ecommerce.controller")

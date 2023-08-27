@@ -5,13 +5,15 @@ const create_book = async (req, res) => {
     const reqBody = req.body;
     const book_exist = await book_Service.get_book_by_name(reqBody.book_name);
     if(book_exist){
-      throw new Error("Book by this name already exist!!!!");
+      throw new Error("Book by this name already exist -!- ");
     }
     const book = await book_Service.create_book(reqBody);
-
+    if(!book){
+      throw new Error("Something went wrong -!- ");
+    }
     res.status(200).json({
       success: true,
-      message: "Book create successfully!",
+      message: "Book created successfully ^-^ ",
       data: { book },
     });
   } catch (error) {
@@ -23,11 +25,11 @@ const get_book_list = async (req,res) => {
   try {
     const book_list = await book_Service.get_book_list();
     if(!book_list){
-      throw new Error("No data founbd!!!");
+      throw new Error("No data founbd -!- ");
     }
     res.status(200).json({
       success: true,
-      message: "Book dispatch list successfully!",
+      message: "Book dispatch list successfully ^-^ ",
       data: book_list,
     });
   } catch (error) {

@@ -1,9 +1,9 @@
 const { Bus } = require("../models")
 
 /**
- * Create user
+ * Create bus
  * @param {object} reqBody
- * @returns {Promise<User>}
+ * @returns {Promise<Bus>}
  */
 const create_bus = async (reqBody) => {
  return Bus.create(reqBody);
@@ -38,6 +38,11 @@ const delete_bus = async(bus_id) => {
     return Bus.findByIdAndDelete(bus_id);
 }
 
+/**
+ * Get bus by bus_name
+ * @param {string} bus_name
+ * @returns {Promise<Bus>}
+ */
 const get_bus_by_name = async(bus_name) => {
     return Bus.findOne({bus_name})
 }
