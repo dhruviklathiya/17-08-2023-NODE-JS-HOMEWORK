@@ -26,8 +26,28 @@ const get_product_list = async() => {
     return Product.find();
 }
 
+/**
+ * Get product by id
+ * @param {object} product_id
+ * @returns {Promise<Product>}
+ */
+const get_product_by_id = async(product_id) => {
+    return Product.findById(product_id);
+}
+
+/**
+ * Delete product by id
+ * @param {object} product_id
+ * @returns {Promise<Product>}
+ */
+const delete_product = async(product_id) => {
+    return Product.findByIdAndDelete(product_id);
+}
+
 module.exports = {
     create_product,
     get_product_by_name,
-    get_product_list
+    get_product_list,
+    get_product_by_id,
+    delete_product
 }

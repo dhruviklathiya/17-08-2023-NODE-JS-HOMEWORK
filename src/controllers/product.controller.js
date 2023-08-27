@@ -40,7 +40,28 @@ const get_product_list = async (req, res) => {
     }
 };
 
+const delete_product = async(req,res) => {
+    try {
+      const product_id = req.params.productId;
+      const product_exist = await product_Service.get_product_by_id(product_id);
+      if(!product_exist){
+        throw new Error("Product not found -!- ");
+      }
+      await product_Service.delete_product(product_id);
+      res.status(200).json({
+        success: true,
+        message: "Product deleted successfully ^-^ ",
+      });
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        message: error.message,
+      });
+    }
+}
+
 module.exports = {
     create_product,
-    get_product_list
+    get_product_list,
+    delete_product
 }

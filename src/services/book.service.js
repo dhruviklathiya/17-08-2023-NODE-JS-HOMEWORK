@@ -40,7 +40,7 @@ const get_book_by_id = async(book_id) => {
  * @returns {Promise<Book>}
  */
 const delete_book = async(book_id) => {
-    return Book.findOneAndDelete(book_id);
+    return Book.findByIdAndDelete(book_id);
 }
 
 module.exports = {

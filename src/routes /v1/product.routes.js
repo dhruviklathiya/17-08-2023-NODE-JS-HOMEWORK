@@ -9,10 +9,12 @@ router.post(
     validate(product_Validation.create_product),
     product_Controller.create_product
 )
-
 router.get(
     "/list",
     product_Controller.get_product_list
 )
-
+router.delete(
+    "/delete-product/:productId",
+    product_Controller.delete_product
+)
 module.exports = router
