@@ -81,22 +81,23 @@ const updateDetails = async (req, res) => {
 };
 
 /** Delete user */
-const deleteUser = async (req, res) => {
+const delete_user = async (req, res) => {
   try {
-    const userId = req.params.userId;
-    const userExists = await user_Service.get_user_by_id(userId);
+    const user_id = req.params.userId;
+    const userExists = await user_Service.get_user_by_id(user_id);
     if (!userExists) {
-      throw new Error("User not found!");
+      throw new Error("User not found -!- ");
     }
-
-    await user_Service.delete_user(userId);
-
+    await user_Service.delete_user(user_id);
     res.status(200).json({
       success: true,
       message: "User delete successfully!",
     });
   } catch (error) {
-    res.status(400).json({ success: false, message: error.message });
+    res.status(400).json({
+      success: false,
+      message: error.message
+    });
   }
 };
 
@@ -125,6 +126,6 @@ module.exports = {
   get_user_list,
   getUserDetails,
   updateDetails,
-  deleteUser,
+  delete_user,
   sendMail,
 };

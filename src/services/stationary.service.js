@@ -2,7 +2,7 @@ const { Stationary } = require("../models");
 
 /**
  * Get item by name
- * @param {string} item_namename
+ * @param {string} item_name
  * @returns {Promise<Stationary>}
  */
 const get_item_by_name = async (item_name) => {
@@ -10,7 +10,7 @@ const get_item_by_name = async (item_name) => {
 }
 /**
 * Create item
-* @param {object} reqBody
+* @param {object} reqbody
 * @returns {Promise<Stationary>}
 */
 const create_stationary = async(reqbody) =>{

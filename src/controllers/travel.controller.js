@@ -5,19 +5,19 @@ const create_travel = async(req,res)=> {
         const reqbody = req.body;
         const travel_exist = await travel_Service.get_travel_by_destination(reqbody.travel_destination);
         if(travel_exist){
-            throw new Error("Travel destination already exist!!!");
+            throw new Error("Travel destination already exist -!- ");
         }
         const travel = await travel_Service.create_travel(reqbody);
         if(!travel){
-            throw new Error("Something went wrong!!!");
+            throw new Error("Something went wrong -!- ");
         }
         res.status(200).json({
             success:true,
-            message:"Travel created successfully!!!========",
+            message:"Travel created successfully ^-^ ",
             data: reqbody
         });
     } catch (error) {
-        res.status(200).json({
+        res.status(400).json({
             success:false,
             message: error.message
         });
@@ -26,18 +26,17 @@ const create_travel = async(req,res)=> {
 
 const get_travel_list = async(req,res)=> {
     try {
-        const reqbody = req.body;
         const travel_list = await travel_Service.get_travel_list();
         if(!travel_list){
-            throw new Error("No data found!!!!");
+            throw new Error("Travel list data not found -!- ");
         }
         res.status(200).json({
             success:true,
-            message:"Travel list dispatch successfully!!!",
+            message:"Travel list dispatch successfully ^-^ ",
             data: travel_list
         });
     } catch (error) {
-        res.status(200).json({
+        res.status(400).json({
             success:false,
             message: error.message
         });
@@ -49,12 +48,12 @@ const delete_travel = async(req,res) => {
         const travel_id = req.params.travelId;
         const travel_exist = await travel_Service.get_travel_by_id(travel_id);
         if(!travel_exist){
-          throw new Error("Travel not found!!!");
+          throw new Error("Travel destination not found -!- ");
         }
         await travel_Service.delete_travel(travel_id);
         res.status(200).json({
           success:true,
-          message:"Travel deleted successfully!!!",
+          message:"Travel destination deleted successfully ^-^ ",
         });
       } catch (error) {
         res.status(400).json({

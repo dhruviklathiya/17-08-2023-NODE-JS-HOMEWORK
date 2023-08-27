@@ -1,7 +1,7 @@
 const Joi = require("joi");
 
 /** create user */
-const createUser = {
+const create_user = {
   body: Joi.object().keys({
     first_name: Joi.string().required().trim(),
     last_name: Joi.string().required().trim(),
@@ -11,7 +11,7 @@ const createUser = {
 };
 
 /** GEt user list */
-const getUserList = {
+const get_user_list = {
   query: Joi.object().keys({
     search: Joi.string().trim().allow(""),
     sortBy: Joi.string().trim().allow(""),
@@ -48,9 +48,9 @@ const sendMail = {
 };
 
 module.exports = {
-  createUser,
+  create_user,
   getDetails,
-  getUserList,
+  get_user_list,
   updateDetails,
   sendMail,
 };

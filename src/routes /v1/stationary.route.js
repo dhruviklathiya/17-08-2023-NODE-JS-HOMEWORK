@@ -4,7 +4,6 @@ const { stationary_Validation } = require("../../validations")
 const { stationary_Controller } = require("../../controllers")
 
 const router = express.Router();
-
 router.get(
     "/list",
     stationary_Controller.get_stationary_list

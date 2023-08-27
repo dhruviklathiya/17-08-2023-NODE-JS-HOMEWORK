@@ -1,7 +1,7 @@
 const { Travel } = require("../models");
 /**
  * Create travel
- * @param {object} reqBody
+ * @param {object} reqbody
  * @returns {Promise<Travel>}
  */
 const create_travel = async(reqbody) => {

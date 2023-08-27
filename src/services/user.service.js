@@ -30,11 +30,11 @@ const get_user_by_email = async (email) => {
 
 /**
  * Get user details by id
- * @param {ObjectId} userId
+ * @param {ObjectId} user_id
  * @returns {Promise<User>}
  */
-const get_user_by_id = async (userId) => {
-  return User.findById(userId);
+const get_user_by_id = async (user_id) => {
+  return User.findById(user_id);
 };
 
 /**

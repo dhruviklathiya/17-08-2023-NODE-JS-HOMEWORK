@@ -1,7 +1,7 @@
 const { Music } = require("../models");
 
 /**
- * Get user by music_track
+ * Get music by music_track
  * @param {string} music_track
  * @returns {Promise<Music>}
  */

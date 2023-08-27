@@ -11,7 +11,7 @@ const get_movie_by_title = async(movie_title) => {
 
 /**
  * Create movie
- * @param {object} reqBody
+ * @param {object} reqbody
  * @returns {Promise<Movie>}
  */
 const create_movie = async(reqbody) => {
@@ -20,7 +20,7 @@ const create_movie = async(reqbody) => {
 
 /**
  * Get movie list
- * @returns {Promise<User>}
+ * @returns {Promise<Movie>}
  */
 const get_movie_list = async() => {
     // Specific data

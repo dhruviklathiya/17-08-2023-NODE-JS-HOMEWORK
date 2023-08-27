@@ -25,7 +25,7 @@ const get_grocery_list = async() => {
     // Specific data
     return Grocery.find({$or:[{grocery_category: "Dairy"}]});
     // All data
-    return Grocery.find();
+    // return Grocery.find();
 }
 
 /**

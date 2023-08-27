@@ -1,16 +1,16 @@
 const { Hotel } = require("../models");
 
 /**
- * Create user
- * @param {object} reqBody
+ * Create hotel
+ * @param {object} reqbody
  * @returns {Promise<Hotel>}
  */
-const create_hotel = async (reqBody) => {
-  return Hotel.create(reqBody);
+const create_hotel = async (reqbody) => {
+  return Hotel.create(reqbody);
 };
 
 /**
- * Get user by email
+ * Get hotel by name
  * @param {string} hotel_name
  * @returns {Promise<Hotel>}
  */
@@ -19,7 +19,7 @@ const get_hotel_by_name = async (hotel_name) => {
   };
 
   /**
- * Get user by email
+ * Get hotel by id
  * @param {string} hotelId
  * @returns {Promise<Hotel>}
  */
@@ -29,8 +29,6 @@ const get_hotel_by_id = async (hotelId) => {
 
   /**
  * Get Hotel list
- * @param {object} filter
- * @param {object} options
  * @returns {Promise<Hotel>}
  */
 const get_hotel_list = async () => {
@@ -40,7 +38,7 @@ const get_hotel_list = async () => {
     // return Hotel.find();
   };
 /**
- * Delete Hotel
+ * Delete Hotel by id
  * @param {ObjectId} hotelId
  * @returns {Promise<Hotel>}
  */

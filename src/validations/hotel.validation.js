@@ -1,6 +1,6 @@
 const Joi = require("joi");
 
-const create_Hotel = {
+const create_hotel = {
     body: Joi.object().keys({
         hotel_name: Joi.string().required().trim(),
         hotel_address: Joi.string().required().trim(),
@@ -9,7 +9,7 @@ const create_Hotel = {
     })
 };
 
-const getDetails = {
+const get_details = {
     params: Joi.object().keys({
       userId: Joi.string().required().trim(),
     }),
@@ -22,7 +22,7 @@ const delete_hotel = {
 }
 
 module.exports = {
-    create_Hotel,
-    getDetails,
+    create_hotel,
+    get_details,
     delete_hotel
 }

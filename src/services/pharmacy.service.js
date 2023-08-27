@@ -5,7 +5,7 @@ const { Pharmacy } = require("../models");
  * @param {string} pharmacy_name
  * @returns {Promise<Pharmacy>}
  */
-const get_pharma_by_name = async(pharmacy_name) => {
+const get_pharmacy_by_name = async(pharmacy_name) => {
     return Pharmacy.findOne({pharmacy_name});
 };
 
@@ -46,7 +46,7 @@ const delete_pharmacy = async(pharmacy_id) => {
 }
 
 module.exports = {
-    get_pharma_by_name,
+    get_pharmacy_by_name,
     create_pharmacy,
     get_pharmacy_list,
     get_pharmacy_by_id,

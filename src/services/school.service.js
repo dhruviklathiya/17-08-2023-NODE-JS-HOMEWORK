@@ -5,7 +5,7 @@ const { School } = require("../models")
  * @param {object} reqbody
  * @returns {Promise<School>}
  */
-const create_school = async (reqbody) => {
+const create_school = async(reqbody) => {
     return School.create(reqbody);
 };
 
@@ -30,7 +30,7 @@ const get_school_list = async () => {
 }
 
 /**
- * Get bus by bus_id
+ * Get school by school_id
  * @param {string} school_id
  * @returns {Promise<School>}
  */
@@ -38,7 +38,7 @@ const get_school_by_id = async(schoold_id) => {
     return School.findById(schoold_id)
 }
 /**
- * Get bus by school_id
+ * Get school by school_id
  * @param {string} school_id
  * @returns {Promise<School>}
  */
