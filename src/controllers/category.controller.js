@@ -14,10 +14,13 @@ const create_category = async (req, res) => {
       res.status(200).json({
         success: true,
         message: "Category create successfully ^-^ ",
-        data: { category },
+        data: reqBody,
       });
     } catch (error) {
-      res.status(400).json({ success: false, message:  error.message});
+      res.status(400).json({
+        success: false,
+        message: error.message
+      });
     }
 };
 
@@ -25,7 +28,7 @@ const category_list = async (req,res) => {
     try {
         const categorylist = await category_Service.get_category_list();
         if(!categorylist){
-          throw new Error("Data not found -!- ");
+          throw new Error("Category list data not found -!- ");
         }
         res.status(200).json({
           success: true,
@@ -33,10 +36,34 @@ const category_list = async (req,res) => {
           data:categorylist
         });
     } catch (error) {
-      res.status(400).json({ success: false, message:  error.message});
+      res.status(400).json({
+        success: false,
+        message: error.message
+      });
     }
+}
+
+const delete_category = async(req,res) => {
+  try {
+    const category_id = req.params.categoryId;
+    const category_exist = await category_Service.get_category_by_id(category_id);
+    if(!category_exist){
+      throw new Error("Category not found -!- ");
+    }
+    await category_Service.delete_category(category_id);
+    res.status(200).json({
+      success: true,
+      message: "Category deleted successfully ^-^ ",
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
 }
 module.exports = {
     create_category,
-    category_list
+    category_list,
+    delete_category
 }

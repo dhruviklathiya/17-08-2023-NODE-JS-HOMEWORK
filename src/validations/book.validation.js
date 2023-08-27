@@ -1,6 +1,6 @@
 const Joi = require("joi");
 
-const createbookValidate = {
+const create_book = {
     body: Joi.object().keys({
         book_name: Joi.string().required().trim(),
         book_author: Joi.string().required().trim()
@@ -8,5 +8,5 @@ const createbookValidate = {
 };
 
 module.exports = {
-    createbookValidate
+    create_book
 }

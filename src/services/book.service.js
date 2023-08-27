@@ -1,11 +1,11 @@
 const { Book } = require("../models");
 /**
  * Create Book
- * @param {object} reqBody
+ * @param {object} reqbody
  * @returns {Promise<Book>}
  */
-const create_book = async (reqBody) => {
-    return Book.create(reqBody);
+const create_book = async (reqbody) => {
+    return Book.create(reqbody);
 };
 /**
  * Get Book list
@@ -19,15 +19,34 @@ const get_book_list = async () => {
 }
 /**
  * Get Book by name
- * @param {object} reqBody
+ * @param {object} book_name
  * @returns {Promise<Book>}
  */
 const get_book_by_name = async(book_name) => {
     return Book.findOne({book_name});
 }
+/**
+ * Get Book by id
+ * @param {object} book_id
+ * @returns {Promise<Book>}
+ */
+const get_book_by_id = async(book_id) => {
+    return Book.findById(book_id);
+}
+
+/**
+ * Delete Book by id
+ * @param {object} book_id
+ * @returns {Promise<Book>}
+ */
+const delete_book = async(book_id) => {
+    return Book.findOneAndDelete(book_id);
+}
 
 module.exports = {
     create_book,
     get_book_list,
-    get_book_by_name
+    get_book_by_name,
+    get_book_by_id,
+    delete_book
 }
