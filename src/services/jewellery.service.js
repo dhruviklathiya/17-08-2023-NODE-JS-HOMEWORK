@@ -46,10 +46,19 @@ const get_jewellery_by_id = async(jewellery_id) => {
 const delete_jewellery = async(jewellery_id) => {
     return Jewellery.findByIdAndDelete(jewellery_id);
 }
+
+/**
+ * Update jewellery
+ * @param {ObjectId} jewellery_id
+ * @returns {Promise<Jewellery>}
+ */
+const update_jewellery = async(jewellery_id,reqbody) => {
+    return Jewellery.findByIdAndUpdate(jewellery_id,{$set:reqbody});
+}
 module.exports = {
     get_jewellery_by_name,
     create_jewellery,
     get_jewellery_list,
     get_jewellery_by_id,
-    delete_jewellery
+    update_jewellery
 }

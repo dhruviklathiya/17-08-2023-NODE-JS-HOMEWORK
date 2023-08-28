@@ -65,8 +65,31 @@ const delete_music = async(req,res) => {
         });
       }
 }
+/* UPDATE MUSIC */
+const update_music = async(req,res) => {
+    try {
+        const reqbody = req.body;
+        const music_id = req.params.musicId;
+        const music_exist = await music_Service.get_music_by_id(music_id);
+        if(!music_exist){
+          throw new Error("Music does not exist -!-");
+        }
+        await music_Service.update_music(music_id,reqbody);
+        res.status(200).json({
+          success:true,
+          message:"Music updated successfully ^-^ ",
+        });
+      } catch (error) {
+        res.status(400).json({
+          success:false,
+          message:error.message
+        });
+      }
+}
+
 module.exports = {
     create_music,
     get_music_list,
-    delete_music
+    delete_music,
+    update_music
 }

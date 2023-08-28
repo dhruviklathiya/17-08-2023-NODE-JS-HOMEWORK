@@ -66,8 +66,31 @@ const delete_stationary = async(req,res) => {
     }
 }
 
+/* UPDATE STATIONARY */
+const update_stationary = async(req,res) => {
+    try {
+        const reqbody = req.body
+        const stationary_id = req.params.stationaryId;
+        const item_exist = await stationary_Service.get_item_by_id(stationary_id);
+        if(!item_exist){
+            throw new Error("Item does not exist -!- ");
+        }
+        await stationary_Service.update_item(stationary_id,reqbody);
+        res.status(200).json({
+            success:true,
+            messgae:"Item updated successfully ^-^ ",
+        });
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            messgae: error.message
+        });
+    }
+}
+
 module.exports = {
     create_stationary,
     get_stationary_list,
-    delete_stationary
+    delete_stationary,
+    update_stationary
 }

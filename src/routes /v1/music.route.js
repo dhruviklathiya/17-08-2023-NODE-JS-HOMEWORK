@@ -17,5 +17,10 @@ router.delete(
     "/delete-music/:musicId",
     music_Controller.delete_music
 );
+router.put(
+    "/update-music/:musicId",
+    validate(music_Validation.create_music),
+    music_Controller.update_music
+);
 
 module.exports = router

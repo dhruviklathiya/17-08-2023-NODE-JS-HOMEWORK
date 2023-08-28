@@ -66,8 +66,31 @@ const delete_product = async(req,res) => {
     }
 }
 
+/* UPDATE PRODUCT */
+const update_product = async(req,res) => {
+    try {
+      const reqbody = req.body;
+      const product_id = req.params.productId;
+      const product_exist = await product_Service.get_product_by_id(product_id);
+      if(!product_exist){
+        throw new Error("Product not found -!- ");
+      }
+      await product_Service.update_product(product_id,reqbody);
+      res.status(200).json({
+        success: true,
+        message: "Product updated successfully ^-^ ",
+      });
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        message: error.message,
+      });
+    }
+}
+
 module.exports = {
     create_product,
     get_product_list,
-    delete_product
+    delete_product,
+    update_product
 }

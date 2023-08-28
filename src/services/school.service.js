@@ -38,7 +38,7 @@ const get_school_by_id = async(schoold_id) => {
     return School.findById(schoold_id)
 }
 /**
- * Get school by school_id
+ * Delete school by school_id
  * @param {string} school_id
  * @returns {Promise<School>}
  */
@@ -46,10 +46,20 @@ const delete_school = async(schoold_id) => {
     return School.findByIdAndDelete(schoold_id)
 }
 
+/**
+ * UPDATE school by school_id
+ * @param {string} school_id
+ * @returns {Promise<School>}
+ */
+const update_school = async(schoold_id,reqbody) => {
+    return School.findByIdAndUpdate(schoold_id,{$set:reqbody})
+}
+
 module.exports = {
     create_school,
     get_school_by_name,
     get_school_list,
     get_school_by_id,
-    delete_school
+    delete_school,
+    update_school
 }

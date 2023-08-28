@@ -46,10 +46,20 @@ const delete_item = async(stationary_id) => {
     return Stationary.findByIdAndDelete(stationary_id);
 }
 
+/**
+ * Update by item id
+ * @param {string} stationary_id
+ * @returns {Promise<Stationary>}
+ */
+const update_item = async(stationary_id,reqbody) => {
+    return Stationary.findByIdAndUpdate(stationary_id,{$set:reqbody});
+}
+
 module.exports = {
     get_item_by_name,
     create_stationary,
     get_stationary_list,
     get_item_by_id,
-    delete_item
+    delete_item,
+    update_item
 }

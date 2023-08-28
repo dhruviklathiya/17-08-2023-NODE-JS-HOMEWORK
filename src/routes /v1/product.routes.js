@@ -17,4 +17,9 @@ router.delete(
     "/delete-product/:productId",
     product_Controller.delete_product
 )
+router.put(
+    "/update-product/:productId",
+    validate(product_Validation.create_product),
+    product_Controller.update_product
+)
 module.exports = router

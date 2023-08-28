@@ -56,6 +56,15 @@ const delete_user = async (userId) => {
   return User.findByIdAndDelete(userId);
 };
 
+/**
+ * Update user
+ * @param {ObjectId} userId
+ * @returns {Promise<User>}
+ */
+const update_user = async (userId,reqbody) => {
+  return User.findByIdAndUpdate(userId,{$set:reqbody});
+};
+
 module.exports = {
   create_user,
   get_user_list,
@@ -63,4 +72,5 @@ module.exports = {
   update_details,
   get_user_by_email,
   delete_user,
+  update_user
 };

@@ -65,8 +65,30 @@ const delete_travel = async(req,res) => {
         });
       }
 }
+/* UPDATE TRAVEL */
+const update_travel = async(req,res) => {
+    try {
+        const reqbody = req.body;
+        const travel_id = req.params.travelId;
+        const travel_exist = await travel_Service.get_travel_by_id(travel_id);
+        if(!travel_exist){
+          throw new Error("Travel destination not found -!- ");
+        }
+        await travel_Service.update_travel(travel_id,reqbody);
+        res.status(200).json({
+          success:true,
+          message:"Travel destination updated successfully ^-^ ",
+        });
+      } catch (error) {
+        res.status(400).json({
+          success:false,
+          message:error.message,
+        });
+      }
+}
 module.exports = {
     create_travel,
     get_travel_list,
-    delete_travel
+    delete_travel,
+    update_travel
 }

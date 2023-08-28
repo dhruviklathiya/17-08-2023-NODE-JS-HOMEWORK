@@ -46,10 +46,21 @@ const get_movie_by_id = async(movie_id) => {
 const delete_movie = async(movie_id) => {
     return Movie.findByIdAndDelete(movie_id);
 }
+
+/**
+ * UPDATE movie
+ * @param {ObjectId} movie_id
+ * @returns {Promise<Movie>}
+ */
+const update_movie = async(movie_id,reqbody) => {
+    return Movie.findByIdAndUpdate(movie_id,{$set:reqbody});
+}
+
 module.exports = {
     get_movie_by_title,
     create_movie,
     get_movie_list,
     get_movie_by_id,
-    delete_movie
+    delete_movie,
+    update_movie
 }

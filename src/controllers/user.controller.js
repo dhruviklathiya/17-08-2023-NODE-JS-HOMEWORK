@@ -97,6 +97,27 @@ const delete_user = async (req, res) => {
     });
   }
 };
+/* UPDATE USER */
+const update_user = async (req, res) => {
+  try {
+    const reqbody = req.body
+    const user_id = req.params.userId;
+    const userExists = await user_Service.get_user_by_id(user_id);
+    if (!userExists) {
+      throw new Error("User does not exist -!- ");
+    }
+    await user_Service.update_user(user_id,reqbody);
+    res.status(200).json({
+      success: true,
+      message: "User updated successfully ^-^ ",
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
 
 /** Send mail to reqested email */
 const sendMail = async (req, res) => {
@@ -110,10 +131,7 @@ const sendMail = async (req, res) => {
     if (!sendEmail) {
       throw new Error("Something went wrong, please try again or later.");
     }
-
-    res
-      .status(200)
-      .json({ success: true, message: "Email send successfully!" });
+    res.status(200).json({ success: true, message: "Email send successfully!" });
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
   }
@@ -125,4 +143,5 @@ module.exports = {
   updateDetails,
   delete_user,
   sendMail,
+  update_user
 };

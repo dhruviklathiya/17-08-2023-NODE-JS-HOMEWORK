@@ -65,9 +65,31 @@ const delete_hotel = async (req, res) => {
     });
   }
 };
+/* UPDATE HOTEL */
+const update_hotel = async (req, res) => {
+  try {
+    const reqbody = req.body;
+    const hotelID = req.params.hotelId;
+    const hotel_exist = await hotel_Service.get_hotel_by_id(hotelID);
+    if (!hotel_exist){
+      throw new Error("Hotel not found -!- ");
+    }
+    await hotel_Service.update_hotel(hotelID,reqbody);
+    res.status(200).json({
+      success: true,
+      message: "Hotel updated successfully ^-^ ",
+    });
+  } catch (error) {
+    res.status(400).json({
+      success:false,
+      message: error.message
+    });
+  }
+};
 
 module.exports = {
     create_hotel,
     get_hotel_list,
-    delete_hotel
+    delete_hotel,
+    update_hotel
 }

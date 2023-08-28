@@ -43,11 +43,20 @@ const get_product_by_id = async(product_id) => {
 const delete_product = async(product_id) => {
     return Product.findByIdAndDelete(product_id);
 }
+/**
+ * Update product by id
+ * @param {object} product_id
+ * @returns {Promise<Product>}
+ */
+const update_product = async(product_id,reqbody) => {
+    return Product.findByIdAndUpdate(product_id,{$set:reqbody});
+}
 
 module.exports = {
     create_product,
     get_product_by_name,
     get_product_list,
     get_product_by_id,
-    delete_product
+    delete_product,
+    update_product
 }

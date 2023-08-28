@@ -65,9 +65,31 @@ const delete_pharmacy = async(req,res) => {
         });
       }
 }
+/* UPDATE PHARMACY */
+const update_pharmacy = async(req,res) => {
+    try {
+        const reqbody = req.body;
+        const pharmacy_id = req.params.pharmacyId;
+        const pharmacy_exist = await pharmacy_Service.get_pharmacy_by_id(pharmacy_id);
+        if(!pharmacy_exist){
+          throw new Error("Pharmacy not found -!- ");
+        }
+        await pharmacy_Service.update_pharmacy(pharmacy_id,reqbody);
+        res.status(200).json({
+          success:true,
+          message:"Pharmacy updated successfully ^-^ ",
+        });
+      } catch (error) {
+        res.status(400).json({
+          success:false,
+          message:error.message,
+        });
+      }
+}
 
 module.exports = {
     create_pharmacy,
     get_pharmacy_list,
-    delete_pharmacy
+    delete_pharmacy,
+    update_pharmacy
 }

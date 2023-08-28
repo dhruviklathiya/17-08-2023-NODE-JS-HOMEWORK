@@ -45,11 +45,20 @@ const get_grocery_by_id = async(grocery_id) => {
 const delete_grocery = async(grocery_id) => {
     return Grocery.findByIdAndDelete(grocery_id);
 }
+/**
+ * update grocery
+ * @param {ObjectId} grocery_id
+ * @returns {Promise<Grocery>}
+ */
+const update_grocey = async(grocery_id,reqbody) => {
+    return Grocery.findByIdAndUpdate(grocery_id,{$set:reqbody});
+}
 
 module.exports = {
     get_grocery_by_name,
     create_grocery,
     get_grocery_list,
     get_grocery_by_id,
-    delete_grocery
+    delete_grocery,
+    update_grocey
 }

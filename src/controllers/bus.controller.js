@@ -65,9 +65,31 @@ const delete_bus = async (req,res) => {
     });
   }
 }
+/* UPDATE BUS */
+const update_bus = async (req,res) => {
+  try {
+    const reqbody = req.body;
+    const bus_id = req.params.busId;
+    const bus_exist = await bus_Service.get_bus_by_id(bus_id);
+    if(!bus_exist){
+      throw new Error("Bus not found -!- ");
+    }
+    await bus_Service.update_bus(bus_id,reqbody);
+    res.status(200).json({
+      success:true,
+      message:"Bus updated successfully ^-^ ",
+    });
+  } catch (error) {
+    res.status(400).json({
+      success:false,
+      message:error.message,
+    });
+  }
+}
 
 module.exports = {
   create_bus,
   get_bus_list,
-  delete_bus
+  delete_bus,
+  update_bus
 }

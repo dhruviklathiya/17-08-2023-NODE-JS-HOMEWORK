@@ -44,11 +44,20 @@ const get_travel_by_id = async(travel_id) => {
 const delete_travel = async(travel_id) => {
     return Travel.findByIdAndDelete(travel_id);
 }
+/**
+ * UPDATE travel by travel_id
+ * @param {string} travel_id
+ * @returns {Promise<Travel>}
+ */
+const update_travel = async(travel_id,reqbody) => {
+    return Travel.findByIdAndUpdate(travel_id,{$set:reqbody});
+}
 
 module.exports = {
     create_travel,
     get_travel_by_destination,
     get_travel_list,
     get_travel_by_id,
-    delete_travel
+    delete_travel,
+    update_travel
 }

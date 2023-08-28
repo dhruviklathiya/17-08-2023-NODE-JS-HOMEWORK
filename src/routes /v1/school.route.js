@@ -17,5 +17,10 @@ router.delete(
     "/delete-school/:schoolId",
     school_Controller.delete_school
 );
+router.put(
+    "/update-school/:schoolId",
+    validate(school_Validation.create_school),
+    school_Controller.update_school
+);
 
 module.exports = router;

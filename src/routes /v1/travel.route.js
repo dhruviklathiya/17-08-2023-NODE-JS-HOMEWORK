@@ -17,5 +17,10 @@ router.delete(
     "/delete-travel/:travelId",
     travel_Controller.delete_travel
 );
+router.put(
+    "/update-travel/:travelId",
+    validate(travel_Validation.create_travel),
+    travel_Controller.update_travel
+);
 
 module.exports = router

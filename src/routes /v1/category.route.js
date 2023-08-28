@@ -17,5 +17,9 @@ router.delete(
     "/delete-category/:categoryId",
     category_Controller.delete_category
 )
-
+router.put(
+    "/update-category/:categoryId",
+    validate(category_Validation.createCategory),
+    category_Controller.update_category
+)
 module.exports = router;

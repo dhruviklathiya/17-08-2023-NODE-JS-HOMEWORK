@@ -65,8 +65,30 @@ const delete_category = async(req,res) => {
     });
   }
 }
+/* UPDATE CATEGORY */
+const update_category = async(req,res) => {
+  try {
+    const reqbody = req.body;
+    const category_id = req.params.categoryId;
+    const category_exist = await category_Service.get_category_by_id(category_id);
+    if(!category_exist){
+      throw new Error("Category not found -!- ");
+    }
+    await category_Service.update_category(category_id,reqbody);
+    res.status(200).json({
+      success: true,
+      message: "Category updated successfully ^-^ ",
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+}
 module.exports = {
     create_category,
     category_list,
-    delete_category
+    delete_category,
+    update_category
 }

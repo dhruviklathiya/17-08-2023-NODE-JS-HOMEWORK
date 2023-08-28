@@ -46,10 +46,20 @@ const delete_music = async(music_id) => {
     return Music.findByIdAndDelete(music_id);
 }
 
+/**
+ * UPDATE music
+ * @param {ObjectId} music_id
+ * @returns {Promise<Music>}
+ */
+const update_music = async(music_id,reqbody) => {
+    return Music.findByIdAndUpdate(music_id,{$set:reqbody});
+}
+
 module.exports = {
     get_music_by_track,
     create_music,
     get_music_list,
     get_music_by_id,
-    delete_music
+    delete_music,
+    update_music
 }

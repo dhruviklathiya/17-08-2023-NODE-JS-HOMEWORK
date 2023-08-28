@@ -44,11 +44,20 @@ const get_pharmacy_by_id = async(pharmacy_id) => {
 const delete_pharmacy = async(pharmacy_id) => {
     return Pharmacy.findByIdAndDelete(pharmacy_id);
 }
+/**
+ * Update pharmacy by pharmacy_id
+ * @param {string} pharmacy_id
+ * @returns {Promise<Pharmacy>}
+ */
+const update_pharmacy = async(pharmacy_id,reqbody) => {
+    return Pharmacy.findByIdAndUpdate(pharmacy_id,{$set:reqbody});
+}
 
 module.exports = {
     get_pharmacy_by_name,
     create_pharmacy,
     get_pharmacy_list,
     get_pharmacy_by_id,
-    delete_pharmacy
+    delete_pharmacy,
+    update_pharmacy
 }

@@ -18,6 +18,11 @@ router.delete(
     validate(hotel_Validation.delete_hotel),
     hotel_Controller.delete_hotel
 )
+router.put(
+    "/update-hotel/:hotelId",
+    validate(hotel_Validation.create_hotel),
+    hotel_Controller.update_hotel
+)
 
 module.exports = router;
 

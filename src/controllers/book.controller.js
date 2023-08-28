@@ -59,9 +59,31 @@ const delete_book = async(req,res) => {
     });
   }
 }
+/* UPDATE BOOK */
+const update_book = async(req,res) => {
+  try {
+    const reqbody = req.body;
+    const book_id = req.params.bookId;
+    const book_exist = await book_Service.get_book_by_id(book_id);
+    if(!book_exist){
+      throw new Error("Book not found -!- ");
+    }
+    await book_Service.update_book(book_id,reqbody);
+    res.status(200).json({
+      success: true,
+      message: "Book updated successfully ^-^ ",
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+}
 
 module.exports = {
     create_book,
     get_book_list,
-    delete_book
+    delete_book,
+    update_book
 }

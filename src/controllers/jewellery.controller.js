@@ -65,8 +65,30 @@ const delete_jewellery = async(req,res) => {
         });
       }
 }
+/* UPDATE JEWELLERY */
+const update_jewellery = async(req,res) => {
+    try {
+        const reqbody = req.body;
+        const jewellery_id = req.params.jewelleryId;
+        const jewellery_exist = await jewellery_Service.get_jewellery_by_id(jewellery_id);
+        if(!jewellery_exist){
+          throw new Error("Jewellery does not exist -!- ");
+        }
+        await jewellery_Service.update_jewellery(jewellery_id,reqbody);
+        res.status(200).json({
+          success:true,
+          message:"Jewellery updated successfully ^-^ ",
+        });
+      } catch (error) {
+        res.status(400).json({
+          success:false,
+          message:error.message,
+        });
+      }
+}
 module.exports = {
     create_jewellery,
     get_jewellery_list,
-    delete_jewellery
+    delete_jewellery,
+    update_jewellery
 }

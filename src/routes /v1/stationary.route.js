@@ -17,5 +17,10 @@ router.delete(
     "/delete-stationary/:stationaryId",
     stationary_Controller.delete_stationary
 );
+router.put(
+    "/update-stationary/:stationaryId",
+    validate(stationary_Validation.create_stationary),
+    stationary_Controller.update_stationary
+);
 
 module.exports = router

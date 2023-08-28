@@ -17,5 +17,10 @@ router.delete(
     "/delete-bus/:busId",
     bus_Controller.delete_bus
 )
+router.put(
+    "/update-bus/:busId",
+    validate(bus_Validation.create_bus),
+    bus_Controller.update_bus
+)
 
 module.exports = router

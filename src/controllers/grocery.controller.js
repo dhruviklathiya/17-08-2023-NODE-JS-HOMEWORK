@@ -66,8 +66,31 @@ const delete_grocey = async(req,res) => {
       }
 }
 
+/* UPDATE GROCERY */
+const update_grocey = async(req,res) => {
+    try {
+        const reqbody = req.body;
+        const grocery_id = req.params.groceryId;
+        const grocery_exist = await grocery_Service.get_grocery_by_id(grocery_id);
+        if(!grocery_exist){
+          throw new Error("Grocery does not exist -!- ");
+        }
+        await grocery_Service.update_grocey(grocery_id,reqbody);
+        res.status(200).json({
+          success:true,
+          message:"Grocery updated successfully ^-^ ",
+        });
+      } catch (error) {
+        res.status(400).json({
+          success:false,
+          message:error.message
+        });
+      }
+}
+
 module.exports = {
     create_grocery,
     get_grocery_list,
-    delete_grocey
+    delete_grocey,
+    update_grocey
 }

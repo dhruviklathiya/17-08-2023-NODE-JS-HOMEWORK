@@ -17,5 +17,10 @@ router.delete(
     "/delete-grocery/:groceryId",
     grocery_Controller.delete_grocey
 );
+router.put(
+    "/update-grocery/:groceryId",
+    validate(grocery_Validation.create_grocery),
+    grocery_Controller.update_grocey
+);
 
 module.exports = router

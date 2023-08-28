@@ -17,5 +17,10 @@ router.delete(
     "/delete-pharmacy/:pharmacyId",
     pharmacy_Controller.delete_pharmacy
 );
+router.put(
+    "/update-pharmacy/:pharmacyId",
+    validate(pharmacy_Validation.create_pharmacy),
+    pharmacy_Controller.update_pharmacy
+);
 
 module.exports = router

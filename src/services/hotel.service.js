@@ -33,9 +33,9 @@ const get_hotel_by_id = async (hotelId) => {
  */
 const get_hotel_list = async () => {
     // Return Specifc data
-    return Hotel.find({ $or:[{hotel_total_rooms:2}]})
+    // return Hotel.find({ $or:[{hotel_total_rooms:2}]})
     // Return all data
-    // return Hotel.find();
+    return Hotel.find();
   };
 /**
  * Delete Hotel by id
@@ -45,11 +45,20 @@ const get_hotel_list = async () => {
 const delete_hotel = async (hotelID) => {
   return Hotel.findByIdAndDelete(hotelID);
 };
+/**
+ * Update Hotel by id
+ * @param {ObjectId} hotelId
+ * @returns {Promise<Hotel>}
+ */
+const update_hotel = async (hotelID,reqbody) => {
+  return Hotel.findByIdAndUpdate(hotelID,{$set:reqbody});
+};
 
 module.exports = {
     create_hotel,
     get_hotel_by_name,
     get_hotel_list,
     get_hotel_by_id,
-    delete_hotel
+    delete_hotel,
+    update_hotel
 }

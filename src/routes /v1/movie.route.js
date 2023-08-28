@@ -17,5 +17,10 @@ router.delete(
     "/delete-movie/:movieId",
     movie_Controller.delete_movie
 );
+router.put(
+    "/update-movie/:movieId",
+    validate(movie_Validation.create_movie),
+    movie_Controller.update_movie
+);
 
 module.exports = router
