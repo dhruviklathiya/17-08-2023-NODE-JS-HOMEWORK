@@ -23,6 +23,7 @@ router.put(
 /* *UPDATE MOBILE DETAILS */
 router.put(
     "/update-mobile/:mobileId",
+    validate(mobile_Validation.create_mobile),
     mobile_Controller.update_mobile
 )
 /* *DELETE MOBILE ROUTE */

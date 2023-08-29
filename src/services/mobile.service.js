@@ -29,7 +29,7 @@ const update_mobile_status = async(mobile_id,mobile_status) => {
 }
 /**UPDATE MOBILE DETAILS */
 const update_mobile = async(mobile_id,reqbody) => {
-    return Mobile.findByIdAndUpdate(mobile_id,{$set: reqbody});
+    return Mobile.findByIdAndUpdate(mobile_id,{$set:reqbody});
 }
 /**DELETE MOBILE BY ID */
 const delete_mobile = async(mobile_id) => {
