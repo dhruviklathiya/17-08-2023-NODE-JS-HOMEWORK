@@ -34,7 +34,7 @@ const get_bus_list = async (req, res) => {
     }
     res.status(200).json({
       success: true,
-      message: "Get user list successfully!",
+      message: "Get bus list successfully!",
       data: bus_list,
     });
   } catch (error) {
