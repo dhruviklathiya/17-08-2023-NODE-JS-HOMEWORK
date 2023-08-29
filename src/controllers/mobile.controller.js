@@ -32,7 +32,7 @@ const get_mobile_list = async(req,res) => {
         }
         res.status(200).json({
             success:true,
-            message: "Mobile created successfully ^-^ ",
+            message: "Mobile list dispatch successfully ^-^ ",
             data: mobile_list
         });
     } catch (error) {
@@ -43,8 +43,30 @@ const get_mobile_list = async(req,res) => {
     }
 }
 
+const update_mobile = async(req,res) => {
+    try {
+        const mobile_id = req.params.mobileId;
+        const mobile_exist = await mobile_Service.get_mobile_by_id(mobile_id);
+        if(!mobile_exist){
+            throw new Error("Mobile not found -!- ");
+        }
+        const mobile_collection = await mobile_Service.get_mobile_status(mobile_id);
+        const mobile_status = mobile_collection.is_active;
+        await mobile_Service.update_mobile_status(mobile_id,mobile_status);
+        res.status(200).json({
+            success:true,
+            message: "Mobile updated successfully ^-^ ",
+        });
+    } catch (error) {
+        res.status(400).json({
+            success:false,
+            message: error.message
+        });
+    }
+}
 
 module.exports = {
     create_mobile,
-    get_mobile_list
+    get_mobile_list,
+    update_mobile
 }
