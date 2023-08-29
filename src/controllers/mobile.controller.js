@@ -1,5 +1,6 @@
 const { mobile_Service } = require("../services");
 
+/* *CREATE MOBILE */
 const create_mobile = async(req,res) => {
     try {
         const reqbody = req.body;
@@ -24,6 +25,7 @@ const create_mobile = async(req,res) => {
     }
 }
 
+/* *GET MOBILE LIST */
 const get_mobile_list = async(req,res) => {
     try {
         const mobile_list = await mobile_Service.get_mobile_list();
@@ -43,7 +45,8 @@ const get_mobile_list = async(req,res) => {
     }
 }
 
-const update_mobile = async(req,res) => {
+/* *UPDATE MOBILE STATUS*/
+const update_mobile_state = async(req,res) => {
     try {
         const mobile_id = req.params.mobileId;
         const mobile_exist = await mobile_Service.get_mobile_by_id(mobile_id);
@@ -64,9 +67,51 @@ const update_mobile = async(req,res) => {
         });
     }
 }
-
+/* *UPDATE MOBILE DETAILS */
+const update_mobile = async (req,res) => {
+    try {
+      const reqbody = req.body;
+      const mobile_id = req.params.mobileId;
+      const mobile_exist = await mobile_Service.get_mobile_by_id(mobile_id);
+      if(!mobile_exist){
+        throw new Error("mobile not found -!- ");
+      }
+      await mobile_Service.update_mobile(mobile_id,reqbody);
+      res.status(200).json({
+        success:true,
+        message:"Mobile updated successfully ^-^ ",
+      });
+    } catch (error) {
+      res.status(400).json({
+        success:false,
+        message:error.message,
+      });
+    }
+  }
+/* *DELETE MOBILE */
+const delete_mobile = async(req,res) => {
+    try {
+    const mobile_id = req.params.mobileId;
+    const mobile_exist = await mobile_Service.get_mobile_by_id(mobile_id);
+    if(!mobile_exist){
+      throw new Error("mobile not found -!- ");
+    }
+    await mobile_Service.delete_mobile(mobile_id);
+    res.status(200).json({
+      success:true,
+      message:"Mobile deleted successfully ^-^ ",
+    });
+  } catch (error) {
+    res.status(400).json({
+      success:false,
+      message:error.message,
+    });
+  }
+}
 module.exports = {
     create_mobile,
     get_mobile_list,
+    update_mobile_state,
+    delete_mobile,
     update_mobile
 }

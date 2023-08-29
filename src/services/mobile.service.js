@@ -27,11 +27,21 @@ const update_mobile_status = async(mobile_id,mobile_status) => {
     }
     return Mobile.findByIdAndUpdate(mobile_id,{$set: {is_active:true}});
 }
+const update_mobile = async(mobile_id,reqbody) => {
+    return Mobile.findByIdAndUpdate(mobile_id,{$set: reqbody});
+}
+
+const delete_mobile = async(mobile_id) => {
+    return Mobile.findByIdAndDelete(mobile_id);
+}
+
 module.exports = {
     get_mobile_by_name,
     create_mobile,
     get_mobile_list,
     get_mobile_by_id,
     get_mobile_status,
-    update_mobile_status
+    update_mobile_status,
+    delete_mobile,
+    update_mobile
 }

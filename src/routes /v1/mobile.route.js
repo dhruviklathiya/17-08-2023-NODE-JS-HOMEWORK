@@ -17,7 +17,17 @@ router.get(
 )
 /* *UPDATE MOBILE STATUS ROUTE */
 router.put(
+    "/update-mobile-state/:mobileId",
+    mobile_Controller.update_mobile_state
+)
+/* *UPDATE MOBILE DETAILS */
+router.put(
     "/update-mobile/:mobileId",
     mobile_Controller.update_mobile
+)
+/* *DELETE MOBILE ROUTE */
+router.delete(
+    "/delete-mobile/:mobileId",
+    mobile_Controller.delete_mobile
 )
 module.exports = router;
