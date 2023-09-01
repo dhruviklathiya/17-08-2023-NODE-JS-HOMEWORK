@@ -15,3 +15,4 @@ module.exports.movie_Service = require("./movie.service");
 module.exports.music_Service = require("./music.service");
 module.exports.grocery_Service = require("./grocery.service");
 module.exports.mobile_Service = require("./mobile.service");
+module.exports.student_Service = require("./student.service")

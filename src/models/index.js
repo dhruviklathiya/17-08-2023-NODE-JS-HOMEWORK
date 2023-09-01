@@ -14,3 +14,4 @@ module.exports.Movie = require("./movie.model");
 module.exports.Music = require("./music.model");
 module.exports.Grocery = require("./grocery.model");
 module.exports.Mobile = require("./mobile.model");
+module.exports.Student = require("./student.model");

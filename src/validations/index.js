@@ -14,3 +14,4 @@ module.exports.movie_Validation = require("./movie.validation");
 module.exports.music_Validation = require("./music.validation");
 module.exports.grocery_Validation = require("./grocery.validation");
 module.exports.mobile_Validation = require("./mobile.validation");
+module.exports.student_Validation = require("./student.validation");

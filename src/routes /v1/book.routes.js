@@ -15,6 +15,7 @@ router.get(
 )
 router.delete(
     "/delete-book/:bookId",
+    validate(),
     book_Controller.delete_book
 )
 router.put(

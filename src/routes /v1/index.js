@@ -15,6 +15,7 @@ const musicRouter = require("./music.route")
 const groceryRouter = require("./grocery.route")
 const ecommerceRouter = require("./ecommerce.route")
 const mobileRouter = require("./mobile.route")
+const studentRouter = require("./student.route")
 
 const router = express.Router();
 
@@ -34,5 +35,6 @@ router.use("/music",musicRouter);
 router.use("/grocery",groceryRouter);
 router.use("/all",ecommerceRouter);
 router.use("/mobile",mobileRouter);
+router.use("/student",studentRouter);
 
 module.exports = router;

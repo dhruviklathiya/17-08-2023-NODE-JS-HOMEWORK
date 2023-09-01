@@ -15,3 +15,4 @@ module.exports.music_Controller = require("./music.controller");
 module.exports.grocery_Controller = require("./grocery.controller");
 module.exports.ecommerce_Controller = require("./ecommerce.controller");
 module.exports.mobile_Controller = require("./mobile.controller");
+module.exports.student_Controller = require("./student.controller")
