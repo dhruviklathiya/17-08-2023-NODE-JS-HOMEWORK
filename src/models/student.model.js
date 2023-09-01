@@ -14,8 +14,10 @@ const student_Schema = new mongoose.Schema(
             type: String,
             trim:true
         },
+        /** Student may add dashes in contact number */
         student_contact: {
-            type: Number
+            type: String,
+            trim:true
         },
         student_email: {
             type: String,

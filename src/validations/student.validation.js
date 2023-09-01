@@ -5,10 +5,10 @@ const create_student = {
         student_name:Joi.string().required().trim(),
         student_course:Joi.string().required().trim(),
         student_dob:Joi.string().required().trim(),
-        student_contact:Joi.number().integer().required(),
+        student_contact:Joi.string().required().trim(),
         student_email:Joi.string().required().trim(),
         guardian_name:Joi.string().required().trim(),
-        guardian_contact:Joi.number().integer().required(),
+        guardian_contact:Joi.string().required().trim(),
     })
 }
 
