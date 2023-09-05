@@ -13,9 +13,9 @@ new CronJob(
 
 /** It's running on when clock time is 7:45 of 24 hours */
 new CronJob(
-  "45 7 * * *",
+  "37 8 * * *",
   function () {
-    console.log("It's running on when clock time is 7:45");
+    console.log("It's running on when clock time is 8:37");
   },
   null,
   false,

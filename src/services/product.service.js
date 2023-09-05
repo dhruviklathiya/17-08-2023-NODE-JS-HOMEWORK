@@ -15,6 +15,7 @@ const get_product_by_name = async(product_name) => {
  * @returns {Promise<Product>}
  */
 const create_product = async(reqBody) => {
+    // return Product.create(reqBody);
     return Product.create(reqBody);
 };
 
@@ -23,7 +24,7 @@ const create_product = async(reqBody) => {
  * @returns {Promise<Product>}
  */
 const get_product_list = async() => {
-    return Product.find();
+    return Product.find().populate("category");
 }
 
 /**
