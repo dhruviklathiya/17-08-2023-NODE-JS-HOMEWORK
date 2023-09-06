@@ -7,7 +7,8 @@ const create_bus = {
         bus_origin: Joi.string().required().trim(),
         bus_destination: Joi.string().required().trim(),
         bus_schedule: Joi.string().required().trim(),
-        bus_stops: Joi.string().required().trim()
+        bus_stops: Joi.string().required().trim(),
+        travel: Joi.string().required().trim()
     })
 }
 

@@ -1,7 +1,7 @@
 module.exports.user_Service = require("./user.service");
 module.exports.category_Service = require("./category.service");
 module.exports.product_Service = require("./product.service");
-module.exports.tokenService = require("./token.service");
+module.exports.token_Service = require("./token.service");
 module.exports.email_Service = require("./email.service");
 module.exports.book_Service = require("./book.service");
 module.exports.hotel_Service = require("./hotel.service");

@@ -1,7 +1,7 @@
 module.exports.user_Controller = require("./user.controller");
 module.exports.category_Controller = require("./category.controller");
 module.exports.product_Controller = require("./product.controller");
-module.exports.tokenController = require("./token.controller");
+module.exports.token_Controller = require("./token.controller");
 module.exports.book_Controller = require("./book.controller");
 module.exports.hotel_Controller = require("./hotel.controller");
 module.exports.bus_Controller = require("./bus.controller");

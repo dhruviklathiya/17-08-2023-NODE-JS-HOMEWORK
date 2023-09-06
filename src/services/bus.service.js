@@ -15,9 +15,9 @@ const create_bus = async (reqbody) => {
  */
 const get_bus_list = async () => {
     // Specific data
-    return Bus.find({$or:[{bus_plate_number: "LMN234"}]})
+    // return Bus.find({$or:[{bus_plate_number: "LMN234"}]})
     // All data
-    // return Bus.find();
+    return Bus.find().populate("travel");
 };
 
 /**

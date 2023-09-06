@@ -1,4 +1,4 @@
-const { tokenService } = require("../services");
+const { token_Service } = require("../services");
 const moment = require("moment");
 
 /** Create token in jsonwebtoken and save in our database. */
@@ -9,12 +9,12 @@ const generateToken = async (req, res) => {
     reqBody.expire_time = moment().add(10, "minutes");
 
     /** Create token in jsonwebtoken */
-    const token = await tokenService.generateToken(reqBody);
+    const token = await token_Service.generateToken(reqBody);
 
     reqBody.token = token;
 
     /** Save token in our database */
-    const saveToken = await tokenService.saveToken(reqBody);
+    const saveToken = await token_Service.saveToken(reqBody);
 
     res
       .status(200)
