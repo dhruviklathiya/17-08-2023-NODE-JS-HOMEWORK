@@ -1,5 +1,4 @@
 const { book_Service } = require("../services");
-
 /* CREATE BOOK */
 const create_book = async (req, res) => {
   try {
@@ -21,7 +20,6 @@ const create_book = async (req, res) => {
     res.status(400).json({ success: false, message:  error.message});
   }
 };
-
 /* BOOK LIST */
 const get_book_list = async (req,res) => {
   try {
@@ -38,7 +36,6 @@ const get_book_list = async (req,res) => {
     res.status(400).json({ success: false, message: error.message });
   }
 };
-
 /* DELETE BOOK */
 const delete_book = async(req,res) => {
   try {
@@ -80,7 +77,7 @@ const update_book = async(req,res) => {
     });
   }
 }
-
+// Exporting controller object
 module.exports = {
     create_book,
     get_book_list,

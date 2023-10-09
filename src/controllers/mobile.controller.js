@@ -1,5 +1,4 @@
 const { mobile_Service } = require("../services");
-
 /* *CREATE MOBILE */
 const create_mobile = async(req,res) => {
     try {
@@ -24,7 +23,6 @@ const create_mobile = async(req,res) => {
         });
     }
 }
-
 /* *GET MOBILE LIST */
 const get_mobile_list = async(req,res) => {
     try {
@@ -44,7 +42,6 @@ const get_mobile_list = async(req,res) => {
         });
     }
 }
-
 /* *UPDATE MOBILE STATUS*/
 const update_mobile_state = async(req,res) => {
     try {
@@ -108,6 +105,7 @@ const delete_mobile = async(req,res) => {
     });
   }
 }
+// Exporting controller object
 module.exports = {
     create_mobile,
     get_mobile_list,
